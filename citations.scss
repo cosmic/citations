@@ -1,0 +1,101 @@
+@mixin border-radius($r) {
+  -webkit-border-radius: $r;
+  -moz-border-radius: $r;
+  border-radius: $r;
+}
+
+@mixin box-shadow($v) {
+  -webkit-box-shadow: $v;
+  -moz-box-shadow: $v;
+  box-shadow: $v;
+}
+
+@mixin column($count, $gap) {
+  -webkit-column-count: $count;
+  -moz-column-count: $count;
+  column-count: $count;
+  -webkit-column-gap: $gap;
+  -moz-column-gap: $gap;
+  column-gap: $gap;
+}
+
+@mixin rotate($deg) {
+  -webkit-transform: rotate($deg);
+  -moz-transform: rotate($deg);
+}
+
+@mixin selection($color, $background) {
+  ::selection {
+    background: $background;
+    color: $color;
+  }
+  ::-moz-selection {
+    background: $background;
+    color: $color;
+  }
+}
+
+html {
+  background: #eee;
+}
+
+body {
+  font: .9em/1.6  "Gill Sans", Helvetica, sans-serif;
+  color: #333;
+  background: #fff;
+  margin: 2em auto;
+  width: 42em;
+  padding: 1em;
+  border: 1px solid #bbb;
+  @include border-radius(.5em);
+  @include box-shadow(0 0 2em rgba(0, 0, 0, .15));
+}
+
+h1 {
+  color: #666;
+  font-weight: 100;
+  margin: 0;
+}
+
+dialog {
+  font-size: 1.2em;
+  display: block;
+  padding: 0;
+  clear: both;
+  padding: 2em 2em 2em 7em;
+
+  //&:nth-child(even) {
+  //  background-color: #fafafa;
+  //}
+
+  border-bottom: 1px solid #eee;
+  &:last-child {
+    border: none;
+  }
+
+  // auteur
+  dt {
+    @include rotate(-10deg);
+    position: relative;
+    top: 9px;
+
+    margin: 0 1em 0 -5em;
+    padding: .5em 0;
+    width: 7em;
+
+    color: #666;
+    text-align: right;
+
+    float: left;
+    clear: left;
+  }
+
+
+  // texte
+  dd {
+    margin: 0;
+    padding: .5em;
+  }
+}
+
+@include selection(#000, #000);

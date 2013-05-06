@@ -1,0 +1,55 @@
+html {
+  background: #eee; }
+
+body {
+  font: 0.9em/1.6 "Gill Sans", Helvetica, sans-serif;
+  color: #333;
+  background: #fff;
+  margin: 2em auto;
+  width: 42em;
+  padding: 1em;
+  border: 1px solid #bbb;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  -webkit-box-shadow: 0 0 2em rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 0 2em rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 2em rgba(0, 0, 0, 0.15); }
+
+h1 {
+  color: #666;
+  font-weight: 100;
+  margin: 0; }
+
+dialog {
+  font-size: 1.2em;
+  display: block;
+  padding: 0;
+  clear: both;
+  padding: 2em 2em 2em 7em;
+  border-bottom: 1px solid #eee; }
+  dialog:last-child {
+    border: none; }
+  dialog dt {
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    position: relative;
+    top: 9px;
+    margin: 0 1em 0 -5em;
+    padding: .5em 0;
+    width: 7em;
+    color: #666;
+    text-align: right;
+    float: left;
+    clear: left; }
+  dialog dd {
+    margin: 0;
+    padding: .5em; }
+
+::selection {
+  background: black;
+  color: black; }
+
+::-moz-selection {
+  background: black;
+  color: black; }
