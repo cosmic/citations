@@ -1,3 +1,5 @@
+// Mixins
+
 @mixin border-radius($r) {
   -webkit-border-radius: $r;
   -moz-border-radius: $r;
@@ -24,15 +26,18 @@
   -moz-transform: rotate($deg);
 }
 
-@mixin selection($color, $background) {
+@mixin selection {
   ::selection {
-    background: $background;
-    color: $color;
+    @content;
   }
   ::-moz-selection {
-    background: $background;
-    color: $color;
+    @content;
   }
+}
+
+@include selection {
+  background: #000;
+  color: #000;
 }
 
 html {
@@ -57,45 +62,24 @@ h1 {
   margin: 0;
 }
 
-dialog {
+ul {
+  list-style-type: none;
   font-size: 1.2em;
-  display: block;
-  padding: 0;
-  clear: both;
-  padding: 2em 2em 2em 7em;
+  padding: 2em 1em;
+  margin: 0;
+  background-color: #f3f3f3;
+  transition: opacity 1s;
 
-  //&:nth-child(even) {
-  //  background-color: #fafafa;
-  //}
-
-  border-bottom: 1px solid #eee;
-  &:last-child {
-    border: none;
+  &:nth-child(even) {
+    background-color: #fafafa;
   }
 
-  // auteur
-  dt {
-    @include rotate(-10deg);
-    position: relative;
-    top: 9px;
-
-    margin: 0 1em 0 -5em;
-    padding: .5em 0;
-    width: 7em;
-
-    color: #666;
-    text-align: right;
-
-    float: left;
-    clear: left;
+  &:hover {
+    background: #333;
+    color: white;
   }
 
-
-  // texte
-  dd {
-    margin: 0;
-    padding: .5em;
+  strong {
+    display: inline-block;
   }
 }
-
-@include selection(#000, #000);
