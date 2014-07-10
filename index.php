@@ -13,17 +13,20 @@ $file = file_get_contents('../edith/data/citations.txt');
   <link href="//fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet" />
   <link rel="stylesheet" href="css/citations.css" />
 </head>
-<body>
+<body data-goto-double-click="../edith/citations">
   <h1>Citations</h1>
 
 <? foreach (explode("\n\n", $file) as $block) : ?>
-  <ul>
+  <ul data-show-on-scroll>
   <? foreach (explode("\n", $block) as $line) : ?>
-    <? if ($line and list($user, $line) = preg_split('/: ?/', $line, 2)) : ?>
-
+    <? if ($line and list($user, $text) = preg_split('/: ?/', $line, 2)) : ?>
       <li>
-        <strong><?= htmlspecialchars($user) ?></strong>&nbsp;:
-        <?= markup($line) ?>
+        <? if ($text) : ?>
+          <strong><?= htmlspecialchars($user) ?></strong>&nbsp;:
+          <?= markup($text) ?>
+        <? else : ?>
+          <span class="context"><?= htmlspecialchars($user) ?></span>
+        <? endif; ?>
       </li>
     <? endif; ?>
   <? endforeach; ?>
