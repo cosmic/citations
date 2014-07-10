@@ -1,5 +1,5 @@
-$('body').dblclick ->
-  window.location = '../edith/citations'
+$('[data-goto-double-click]').dblclick ->
+  window.location = $(this).data('goto-double-click')
 
-$('ul').css(opacity: 0).fracs (fracs) ->
+$('[data-show-on-scroll]').css(opacity: 0).fracs (fracs) ->
   $(this).css(opacity: 1) if fracs.possible == 1
