@@ -19,7 +19,7 @@ $file = file_get_contents('../edith/data/citations.txt');
 <? foreach (explode("\n\n", $file) as $block) : ?>
   <ul data-show-on-scroll>
   <? foreach (explode("\n", $block) as $line) : ?>
-    <? if ($line and list($user, $text) = preg_split('/: ?/', $line, 2)) : ?>
+    <? if ($line and list($user, $text) = preg_split('/: ?|$/', $line, 2)) : ?>
       <li>
         <? if ($text) : ?>
           <strong><?= htmlspecialchars($user) ?></strong>&nbsp;:
